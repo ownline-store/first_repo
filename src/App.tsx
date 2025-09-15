@@ -84,10 +84,10 @@ function App() {
                 <div className="flex items-center gap-8 pt-4">
                   <div className="text-center">
                     <div className="text-2xl font-bold text-purple-600">10,000+</div>
-                    <div className="text-sm text-gray-600">Students</div>
+                    <div className="text-sm text-gray-600">Users</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-2xl font-bold text-purple-600">4.9/5</div>
+                    <div className="text-2xl font-bold text-purple-600">4.7/5</div>
                     <div className="text-sm text-gray-600">Rating</div>
                   </div>
                   <div className="text-center">
@@ -104,7 +104,7 @@ function App() {
                     <h3 className="text-2xl font-bold mb-2">Instagram 0-100k</h3>
                     <p className="text-lg opacity-90">Followers Roadmap</p>
                     <div className="mt-6 bg-white/20 rounded-lg p-4">
-                      <div className="text-3xl font-bold">$47</div>
+                      <div className="text-3xl font-bold">₹299</div>
                       <div className="text-sm opacity-80">One-time payment</div>
                     </div>
                   </div>
@@ -246,21 +246,21 @@ function App() {
               <div className="grid md:grid-cols-3 gap-8 items-center">
                 <div className="md:col-span-2 space-y-6">
                   <p className="text-lg text-gray-700 leading-relaxed">
-                    Meet Riya, a 24-year-old fitness enthusiast who was stuck at 847 followers for 8 months. She posted daily, used trending hashtags, and even tried buying followers (which didn't work). She was about to give up on her dream of becoming a fitness influencer.
+                    Meet Nikhil, a 24-year-old content creator who was stuck at 847 followers for 8 months. He posted daily, used trending hashtags, and even tried buying followers (which didn't work). He was about to give up on his dream.
                   </p>
                   
                   <p className="text-lg text-gray-700 leading-relaxed">
-                    Then she discovered the exact system you're about to learn. Within 90 days, Riya went from 847 to 47,000 followers. Today, she earns $8,000+ per month through brand partnerships and her own fitness programs.
+                    Then he discovered the exact system you're about to learn. Within 90 days, Nikhil went from 847 to 47,000 followers. Today, he earns ₹1Lakh+ per month through brand partnerships and his own content.
                   </p>
                   
                   <div className="bg-white rounded-lg p-6 shadow-sm">
                     <div className="flex items-center gap-4 mb-4">
                       <div className="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center text-white font-bold">
-                        R
+                        N
                       </div>
                       <div>
-                        <div className="font-semibold text-gray-900">Riya Sharma</div>
-                        <div className="text-sm text-gray-600">@fitwithriya • 47K followers</div>
+                        <div className="font-semibold text-gray-900">Nikhil Pandam</div>
+                        <div className="text-sm text-gray-600">@mstinstaofficial • 113K followers</div>
                       </div>
                     </div>
                     <p className="text-gray-700 italic">
@@ -275,7 +275,7 @@ function App() {
                     <div className="space-y-2">
                       <div className="text-2xl font-bold text-gray-900">847 → 47K</div>
                       <div className="text-sm text-gray-600">Followers in 90 days</div>
-                      <div className="text-lg font-semibold text-green-600">$8,000/month</div>
+                      <div className="text-lg font-semibold text-green-600">₹1,00,000/month</div>
                       <div className="text-xs text-gray-500">Monthly earnings</div>
                     </div>
                   </div>
@@ -457,7 +457,7 @@ function App() {
                     </div>
                     <div>
                       <h4 className="font-semibold text-gray-900 mb-2">Brands reach out to YOU for partnerships</h4>
-                      <p className="text-gray-600">Earn $500-$5000+ per sponsored post without chasing clients.</p>
+                      <p className="text-gray-600">Earn ₹40,000-₹4,00,000+ per sponsored post without chasing clients.</p>
                     </div>
                   </div>
                   
@@ -634,9 +634,9 @@ function App() {
                 
                 <div className="text-center">
                   <div className="mb-6">
-                    <div className="text-4xl font-bold text-purple-600 mb-2">$47</div>
+                    <div className="text-4xl font-bold text-purple-600 mb-2">₹299</div>
                     <div className="text-gray-600">One-time payment</div>
-                    <div className="text-sm text-gray-500 line-through">Regular price: $197</div>
+                    <div className="text-sm text-gray-500 line-through">Regular price: ₹599</div>
                   </div>
                   
                   <button className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl w-full mb-4">
@@ -662,7 +662,7 @@ function App() {
             </div>
             
             <p className="text-sm opacity-75">
-              This offer won't last forever. The price will increase to $197 soon.
+              This offer won't last forever. The price will increase to ₹599 soon.
             </p>
           </div>
         </div>
