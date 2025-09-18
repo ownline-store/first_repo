@@ -19,6 +19,7 @@ import {
   Award,
   Smartphone
 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 function App() {
   const [isVisible, setIsVisible] = useState<Record<string, boolean>>({});
@@ -505,14 +506,6 @@ function App() {
               </div>
 
               <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
-                <div className="bg-blue-100 rounded-full w-12 h-12 flex items-center justify-center mb-4">
-                  <Camera className="w-6 h-6 text-blue-600" />
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">Viral Content Templates</h3>
-                <p className="text-gray-600">50+ proven post templates that generate massive engagement every time.</p>
-              </div>
-
-              <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
                 <div className="bg-green-100 rounded-full w-12 h-12 flex items-center justify-center mb-4">
                   <BarChart3 className="w-6 h-6 text-green-600" />
                 </div>
@@ -668,25 +661,32 @@ function App() {
         </div>
       </section>
 
+      
+
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-12">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center">
             <div className="flex items-center justify-center gap-2 mb-6">
               <Instagram className="w-8 h-8 text-purple-400" />
-              <span className="text-2xl font-bold">Instagram Growth Roadmap</span>
+              <span className="text-2xl font-bold">OwnlineStore</span>
             </div>
             
             <p className="text-gray-400 mb-8">
-              Transform your Instagram presence and build a thriving online business.
+              Discover and download high-quality e-books instantly—no waiting, no shipping.
             </p>
             
             <div className="border-t border-gray-800 pt-8">
-              <p className="text-sm text-gray-500">
-                © 2024 Instagram Growth Roadmap. All rights reserved. | 
-                <a href="#" className="hover:text-white ml-1">Privacy Policy</a> | 
-                <a href="#" className="hover:text-white ml-1">Terms of Service</a>
-              </p>
+              <div className="flex flex-col md:flex-row items-center justify-center gap-3 md:gap-6 text-sm text-gray-500">
+                <span>© 2024 OwnlineStore. All rights reserved.</span>
+                <div className="flex flex-wrap items-center justify-center gap-3">
+                  <Link to="/about" className="hover:text-white">About Us</Link>
+                  <Link to="/contact" className="hover:text-white">Contact Us</Link>
+                  <Link to="/privacy" className="hover:text-white">Privacy Policy</Link>
+                  <Link to="/terms" className="hover:text-white">Terms & Conditions</Link>
+                  <Link to="/refunds" className="hover:text-white">Refund Policy</Link>
+                </div>
+              </div>
             </div>
           </div>
         </div>
