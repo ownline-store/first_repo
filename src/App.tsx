@@ -100,13 +100,18 @@ function App() {
 
               <div className="relative">
                 <div className="bg-white rounded-2xl shadow-2xl p-8 transform rotate-3 hover:rotate-0 transition-transform duration-500">
-                  <div className="bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl p-8 text-white text-center">
-                    <Instagram className="w-16 h-16 mx-auto mb-4" />
-                    <h3 className="text-2xl font-bold mb-2">Instagram 0-100k</h3>
-                    <p className="text-lg opacity-90">Followers Roadmap</p>
-                    <div className="mt-6 bg-white/20 rounded-lg p-4">
-                      <div className="text-3xl font-bold">₹299</div>
-                      <div className="text-sm opacity-80">One-time payment</div>
+                  <div className="relative">
+                    <img 
+                      src="/images/Poster - Maximize Your Impact.png" 
+                      alt="Instagram 0-100k Followers Roadmap - Ebook Cover"
+                      className="w-full h-auto rounded-xl shadow-lg"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-xl"></div>
+                    <div className="absolute bottom-4 left-4 right-4 text-white">
+                      <div className="bg-white/20 backdrop-blur-sm rounded-lg p-3">
+                        <div className="text-2xl font-bold">₹299</div>
+                        <div className="text-sm opacity-90">Digital Ebook</div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -385,7 +390,7 @@ function App() {
                     </div>
                     <div className="flex items-center gap-3">
                       <Star className="w-5 h-5 text-yellow-500" />
-                      <span>Updated for 2024 algorithm changes</span>
+                      <span>Updated for 2025 algorithm changes</span>
                     </div>
                     <div className="flex items-center gap-3">
                       <Star className="w-5 h-5 text-yellow-500" />
@@ -595,10 +600,19 @@ function App() {
             <div className="bg-white rounded-2xl p-8 md:p-12 text-gray-900 mb-8">
               <div className="grid md:grid-cols-2 gap-8 items-center">
                 <div>
-                  <div className="bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl p-6 text-white text-center mb-6">
-                    <Instagram className="w-12 h-12 mx-auto mb-3" />
-                    <h3 className="text-2xl font-bold mb-2">Instagram 0-100k</h3>
-                    <p className="text-lg opacity-90">Followers Roadmap</p>
+                  <div className="relative mb-6">
+                    <img 
+                      src="/images/Poster - Maximize Your Impact.png" 
+                      alt="Instagram 0-100k Followers Roadmap - Ebook Cover"
+                      className="w-1/2 h-auto  shadow-lg mx-auto"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent rounded-xl"></div>
+                    <div className="absolute bottom-3 left-3 right-3 text-white">
+                      <div className="bg-white/20 backdrop-blur-sm rounded-lg p-2 text-center">
+                        <div className="text-lg font-bold">Instagram 0-100k</div>
+                        <div className="text-sm opacity-90">Followers Roadmap</div>
+                      </div>
+                    </div>
                   </div>
                   
                   <div className="space-y-3 text-left">
@@ -632,9 +646,19 @@ function App() {
                     <div className="text-sm text-gray-500 line-through">Regular price: ₹599</div>
                   </div>
                   
-                  <button className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl w-full mb-4">
-                    Buy Now – Instant Access
-                  </button>
+                  {(() => {
+                    const razorpayUrl = import.meta.env.VITE_RAZORPAY_URL || 'https://razorpay.me/@ownlinestore?amount=kXxURMaXFk%2Bmrv%2B9uGrYpg%3D%3D';
+                    return (
+                      <a
+                        href={razorpayUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl w-full mb-4 inline-flex justify-center"
+                      >
+                        Pay ₹299 with Razorpay
+                      </a>
+                    );
+                  })()}
                   
                   <p className="text-sm text-gray-600">
                     Backed by our 30-day growth guarantee
@@ -679,7 +703,7 @@ function App() {
             
             <div className="border-t border-gray-800 pt-8">
               <div className="flex flex-col md:flex-row items-center justify-center gap-3 md:gap-6 text-sm text-gray-500">
-                <span>© 2024 OwnlineStore. All rights reserved.</span>
+                <span>© 2025 OwnlineStore. All rights reserved.</span>
                 <div className="flex flex-wrap items-center justify-center gap-3">
                   <Link to="/about" className="hover:text-white">About Us</Link>
                   <Link to="/contact" className="hover:text-white">Contact Us</Link>
