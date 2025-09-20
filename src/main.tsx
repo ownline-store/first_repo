@@ -7,6 +7,7 @@ import Contact from './pages/Contact';
 import Privacy from './pages/Privacy';
 import Terms from './pages/Terms';
 import Refunds from './pages/Refunds';
+import PaymentSuccess from './pages/PaymentSuccess';
 import './index.css';
 import './firebase/config'; // Initialize Firebase
   
@@ -16,6 +17,7 @@ createRoot(document.getElementById('root')!).render(
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/instagram_followers_roadmap" element={<App />} />
+        <Route path="/payment-success" element={<PaymentSuccess />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/privacy" element={<Privacy />} />

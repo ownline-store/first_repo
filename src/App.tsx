@@ -663,7 +663,11 @@ function App() {
                   </div>
                   
                   {(() => {
-                    const razorpayUrl = import.meta.env.VITE_RAZORPAY_URL || 'https://razorpay.me/@ownlinestore?amount=kXxURMaXFk%2Bmrv%2B9uGrYpg%3D%3D';
+                    // Create Razorpay URL with success redirect
+                    const baseUrl = window.location.origin;
+                    const successUrl = `${baseUrl}/payment-success`;
+                    const razorpayUrl = import.meta.env.VITE_RAZORPAY_URL || `https://razorpay.me/@ownlinestore?amount=kXxURMaXFk%2Bmrv%2B9uGrYpg%3D%3D&redirect_url=${encodeURIComponent(successUrl)}`;
+                    
                     return (
                       <a
                         href={razorpayUrl}
