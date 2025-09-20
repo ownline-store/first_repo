@@ -1,6 +1,6 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import { HashRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import App from './App';
 import About from './pages/About';
 import Contact from './pages/Contact';
@@ -11,9 +11,10 @@ import './index.css';
   
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <HashRouter>
+    <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />} />
+        <Route path="/instagram_followers_roadmap" element={<App />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/privacy" element={<Privacy />} />
@@ -21,6 +22,6 @@ createRoot(document.getElementById('root')!).render(
         <Route path="/refunds" element={<Refunds />} />
         <Route path="*" element={<App />} />
       </Routes>
-    </HashRouter>
+    </BrowserRouter>
   </StrictMode>
 );
