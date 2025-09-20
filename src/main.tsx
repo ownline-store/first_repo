@@ -8,7 +8,7 @@ import Privacy from './pages/Privacy';
 import Terms from './pages/Terms';
 import Refunds from './pages/Refunds';
 import './index.css';
-
+  
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <HashRouter>
