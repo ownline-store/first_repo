@@ -102,7 +102,7 @@ function App() {
                 <div className="bg-white rounded-2xl shadow-2xl p-8 transform rotate-3 hover:rotate-0 transition-transform duration-500">
                   <div className="relative">
                     <img 
-                      src="/first_repo/images/Poster - Maximize Your Impact.png" 
+                      src="/images/Poster - Maximize Your Impact.png" 
                       alt="Instagram 0-100k Followers Roadmap - Ebook Cover"
                       className="w-full h-auto rounded-xl shadow-lg"
                     />
@@ -602,7 +602,7 @@ function App() {
                 <div>
                   <div className="relative mb-6">
                     <img 
-                      src="/first_repo/images/Poster - Maximize Your Impact.png" 
+                      src="/images/Poster - Maximize Your Impact.png" 
                       alt="Instagram 0-100k Followers Roadmap - Ebook Cover"
                       className="w-1/2 h-auto  shadow-lg mx-auto"
                     />
