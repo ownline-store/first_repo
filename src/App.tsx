@@ -20,9 +20,18 @@ import {
   Smartphone
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { usePageTracking, useScrollTracking, useButtonTracking, useEventTracking } from './hooks/useAnalytics';
+import { trackAddToCart, trackPurchase } from './firebase/analytics';
 
 function App() {
   const [isVisible, setIsVisible] = useState<Record<string, boolean>>({});
+  
+  // Analytics hooks
+  usePageTracking();
+  useScrollTracking();
+  const { handleClick: trackGetAccessClick } = useButtonTracking('get_access_button');
+  const { handleClick: trackPayNowClick } = useButtonTracking('pay_now_button');
+  const { trackCustomEvent } = useEventTracking();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -71,7 +80,14 @@ function App() {
                 
                 <div className="flex flex-col sm:flex-row gap-4">
                   <button 
-                    onClick={scrollToCheckout}
+                    onClick={() => {
+                      scrollToCheckout();
+                      trackGetAccessClick();
+                      trackCustomEvent('cta_click', { 
+                        button_type: 'get_access',
+                        location: 'hero_section'
+                      });
+                    }}
                     className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center gap-2"
                   >
                     Get Instant Access <ArrowRight className="w-5 h-5" />
@@ -653,6 +669,15 @@ function App() {
                         href={razorpayUrl}
                         target="_blank"
                         rel="noopener noreferrer"
+                        onClick={() => {
+                          trackPayNowClick();
+                          trackAddToCart('Instagram 0-100k Followers Roadmap', 299, 'INR');
+                          trackCustomEvent('purchase_intent', {
+                            product_name: 'Instagram 0-100k Followers Roadmap',
+                            price: 299,
+                            currency: 'INR'
+                          });
+                        }}
                         className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl w-full mb-4 inline-flex justify-center"
                       >
                         Pay ₹299 with Razorpay
