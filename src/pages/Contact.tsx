@@ -10,7 +10,7 @@ export default function Contact() {
                 For all enquiries related to orders, products, refunds, or support, please reach out to our team directly by email. We aim to respond to every message as quickly as possible and typically within 24–48 business hours. Include your order ID (if available) and a brief description of your query so we can assist you faster.
               </p>
               <p className="mt-4 text-lg font-semibold text-gray-900">
-                Email: <a href="mailto:services@ownlinestore.com" className="text-purple-600 underline">services@ownlinestore.com</a>
+                Email: <a href="https://mail.google.com/mail/?view=cm&fs=1&to=services@ownlinestore.com" target="_blank" rel="noopener noreferrer" className="text-purple-600 underline">services@ownlinestore.com</a>
               </p>
               <p className="mt-4 text-sm text-gray-600">
                 Tip: Check your spam or promotions folder if you don’t see our reply. For urgent matters, reply to our last email thread so the context stays intact.

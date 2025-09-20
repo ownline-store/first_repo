@@ -38,12 +38,7 @@ export default function Refunds() {
               <ul className="list-disc list-inside text-gray-700 space-y-1 mb-6">
                 <li>
                   Email{" "}
-                  <a
-                    href="mailto:services@ownlinestore.com"
-                    className="text-purple-600 underline"
-                  >
-                    services@ownlinestore.com
-                  </a>{" "}
+                  <a href="https://mail.google.com/mail/?view=cm&fs=1&to=services@ownlinestore.com" target="_blank" rel="noopener noreferrer" className="text-purple-600 underline">services@ownlinestore.com</a>{" "}
                   with the subject line “Refund Request – eBook.”
                 </li>
                 <li>Our support team will review and respond within <span className="font-semibold">48 hours</span>.</li>
@@ -53,12 +48,7 @@ export default function Refunds() {
               <h2 className="text-2xl font-semibold text-gray-900 mb-2">Need Help?</h2>
               <p className="text-gray-700 leading-relaxed">
                 If you have trouble downloading or accessing the PDF, please reach out to{" "}
-                <a
-                  href="mailto:services@ownlinestore.com"
-                  className="text-purple-600 underline"
-                >
-                  services@ownlinestore.com
-                </a>{" "}
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=services@ownlinestore.com" target="_blank" rel="noopener noreferrer" className="text-purple-600 underline">services@ownlinestore.com</a>{" "}
                 and we’ll gladly assist.
               </p>
             </div>

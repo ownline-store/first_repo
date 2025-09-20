@@ -77,12 +77,7 @@ export default function Privacy() {
                 You may request access, correction, or deletion of your personal data, and you may
                 withdraw consent for marketing emails at any time. To exercise these rights or ask
                 questions, contact us at{" "}
-                <a
-                  href="mailto:services@ownlinestore.com"
-                  className="text-purple-600 underline"
-                >
-                  services@ownlinestore.com
-                </a>.
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=services@ownlinestore.com" target="_blank" rel="noopener noreferrer" className="text-purple-600 underline">services@ownlinestore.com</a>
               </p>
             </div>
           </div>
