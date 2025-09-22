@@ -15,6 +15,7 @@ export interface RazorpayOptions {
   description: string;
   order_id?: string;
   handler: (response: any) => void;
+  remember_customer?: boolean;
   prefill?: {
     name?: string;
     email?: string;
@@ -79,11 +80,9 @@ export const openRazorpayPayment = async (
       name: 'OwnlineStore',
       description: 'Instagram 0-100k Followers Roadmap',
       handler: onSuccess,
-      prefill: {
-        name: 'Customer Name',
-        email: 'customer@example.com',
-        contact: '9999999999'
-      },
+      // Do not prefill so Razorpay prompts for details
+      remember_customer: false,
+      prefill: {},
       notes: {
         product: 'Instagram 0-100k Followers Roadmap',
         payment_id: `pay_${Date.now()}`
