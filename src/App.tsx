@@ -22,6 +22,8 @@ import {
 import { Link } from 'react-router-dom';
 import { usePageTracking, useScrollTracking, useButtonTracking, useEventTracking } from './hooks/useAnalytics';
 import { trackAddToCart, trackPurchase } from './firebase/analytics';
+import { openRazorpayPayment, verifyPaymentSignature } from './utils/razorpayHandler';
+import { createPaymentToken } from './utils/tokenUtils';
 
 function App() {
   const [isVisible, setIsVisible] = useState<Record<string, boolean>>({});
@@ -663,29 +665,89 @@ function App() {
                   </div>
                   
                   {(() => {
-                    // Create Razorpay URL with success redirect
-                    const baseUrl = window.location.origin;
-                    const successUrl = `${baseUrl}/payment-success`;
-                    const razorpayUrl = import.meta.env.VITE_RAZORPAY_URL || `https://razorpay.me/@ownlinestore?amount=kXxURMaXFk%2Bmrv%2B9uGrYpg%3D%3D&redirect_url=${encodeURIComponent(successUrl)}`;
-                    
+                    const handlePaymentClick = async () => {
+                      try {
+                        // Track payment intent
+                        trackPayNowClick();
+                        trackAddToCart('Instagram 0-100k Followers Roadmap', 299, 'INR');
+                        trackCustomEvent('purchase_intent', {
+                          product_name: 'Instagram 0-100k Followers Roadmap',
+                          price: 299,
+                          currency: 'INR'
+                        });
+
+                        // Open Razorpay payment modal
+                        await openRazorpayPayment(
+                          299, // Amount in INR
+                          async (response) => {
+                            // Payment successful
+                            console.log('Payment successful:', response);
+                            
+                            // Verify payment signature
+                            const isVerified = await verifyPaymentSignature(
+                              response.razorpay_order_id,
+                              response.razorpay_payment_id,
+                              response.razorpay_signature
+                            );
+
+                            if (isVerified) {
+                              // Generate secure token
+                              const token = createPaymentToken(response.razorpay_payment_id);
+                              
+                              // Store payment data
+                              const paymentData = {
+                                paymentId: response.razorpay_payment_id,
+                                orderId: response.razorpay_order_id,
+                                amount: 299,
+                                currency: 'INR',
+                                status: 'success',
+                                timestamp: Date.now(),
+                                token: token
+                              };
+                              
+                              localStorage.setItem(`payment_${response.razorpay_payment_id}`, JSON.stringify(paymentData));
+                              
+                              // Track successful payment
+                              trackPurchase(299, 'INR', response.razorpay_payment_id);
+                              trackCustomEvent('payment_success', {
+                                payment_id: response.razorpay_payment_id,
+                                amount: 299,
+                                currency: 'INR'
+                              });
+                              
+                              // Redirect to success page with token
+                              const successUrl = `/payment-success?token=${token}&payment_id=${response.razorpay_payment_id}`;
+                              window.location.href = successUrl;
+                            } else {
+                              // Payment verification failed
+                              trackCustomEvent('payment_verification_failed', {
+                                payment_id: response.razorpay_payment_id
+                              });
+                              alert('Payment verification failed. Please contact support.');
+                            }
+                          },
+                          (error) => {
+                            // Payment failed
+                            console.error('Payment failed:', error);
+                            trackCustomEvent('payment_failed', {
+                              error: error.description || 'Payment failed'
+                            });
+                            alert('Payment failed. Please try again.');
+                          }
+                        );
+                      } catch (error) {
+                        console.error('Payment error:', error);
+                        alert('An error occurred. Please try again.');
+                      }
+                    };
+
                     return (
-                      <a
-                        href={razorpayUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        onClick={() => {
-                          trackPayNowClick();
-                          trackAddToCart('Instagram 0-100k Followers Roadmap', 299, 'INR');
-                          trackCustomEvent('purchase_intent', {
-                            product_name: 'Instagram 0-100k Followers Roadmap',
-                            price: 299,
-                            currency: 'INR'
-                          });
-                        }}
+                      <button
+                        onClick={handlePaymentClick}
                         className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl w-full mb-4 inline-flex justify-center"
                       >
                         Pay ₹299 with Razorpay
-                      </a>
+                      </button>
                     );
                   })()}
                   
